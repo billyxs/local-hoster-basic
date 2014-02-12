@@ -55,12 +55,13 @@ if ($handle) {
 		// loop through the lines of text in file
 		foreach($lines as $key=>$val) {
 			// explode the text on the tab separation
-			$line = explode("\t", $val);
+			$line = preg_split("/[\s,]+/", $val);
+			$line = array_diff($line, array(""));
 
 			if(is_array($line)) {
 				if(strpos($line[0], '#') === false ) {
 				} else if($trigger) {
-					echo '<h3>' . $line[0] . '</h3>';
+					echo '<h3>' . implode($line, " ") . '</h3>';
 				}
 
 				if(strpos($line[0], '127.0.0.1') === false ) {
@@ -73,6 +74,5 @@ if ($handle) {
 		}
 		?>
 	</div>
-
 </body>
 </html>
