@@ -1,30 +1,33 @@
 <?php
 
 if(isset($_REQUEST['data']) ) {
-	// File path
+	// File paths
 	$hostsFile = '/etc/hosts';
 	$vhostsFile = '/etc/apache2/extra/httpd-vhosts.conf';
 
+	// REQUEST configuration
 	$docRoot = $_REQUEST['data']['document-root'];
 	$serverName = $_REQUEST['data']['server-name'];
 
-	$addHost = "\n127.0.0.1\t$serverName";
-
+	// Add new domain to hosts file
+	$addHost = "127.0.0.1\t$serverName\n";
 	$hostHandle = fopen($hostsFile, 'a');
 	fwrite($hostHandle, $addHost);
 	fclose($hostHandle);
 
-	$addVhost = <<<HEREDOC
-
-<VirtualHost *:80>
-    DocumentRoot $docRoot
-    ServerName $serverName
-</VirtualHost>
-HEREDOC;
+	// Add domain to vhosts file
+	$addVhost = "<VirtualHost *:80>\n"
+    					. "\tDocumentRoot $docRoot\n"
+    					. "\tServerName $serverName\n"
+							. "</VirtualHost>\n"
+							;
 
 	$vhostsHandle = fopen($vhostsFile, 'a');
 	fwrite($vhostsHandle, $addVhost);
 	fclose($vhostsHandle);
+
+	// Restart Apache to take on new configuration
+	exec("sudo apachectl restart");
 }
 ?>
 <html>
