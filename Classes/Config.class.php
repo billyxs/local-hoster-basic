@@ -1,4 +1,6 @@
 <?php
+require_once('LocalHosterFile.class.php');
+
 /**
  * Config Class
  * Configuration settings for Local Hoster
@@ -9,39 +11,38 @@ class Config extends LocalHosterFile {
 	// Config file name
 	const CONFIG_FILE_PATH ='config.json';
 
-	// hosts file path
-	protected $hostsPath = '';
-
-	// vhosts file path
-	protected $vhostPath = '';
-
 	// projects folder path
 	protected $projectsPath = array();
 
-	// public function __construct () {
-	// 	parent::__construct();
-
-	// }
+	protected $data = array();
 
 	public function getConfigFile() {
-
-		if( $this->exists() ) {
-			$this->setConfig();
-		}
-
-	}
-
-	public function exists() {
-		$configFile = $this->getConfigFilePath();
-		return file_exists($configFile);
+		$this->setConfig();
 	}
 
 	public function getConfigFilePath () {
 		return $_SERVER['DOCUMENT_ROOT'] . '/' . self::CONFIG_FILE_PATH;
 	}
 
+	public function save($data=array()) {
+		$file = $this->getConfigFilePath();
+		if(!is_writable( $file ) ) {
+			return false;
+		}
+
+		$fh = file_put_contents($this->getConfigFilePath(), json_encode($data) );
+
+	}
+
 	private function setConfig() {
-		$file = fopen($this->getConfigFilePath() );
+		if( !$this->exists() ) {
+			return;
+		}
+
+		$configJSON = file_get_contents($this->filePath);
+		$this->data = json_decode($configJSON, true);
+
+		return $this->data;
 	}
 
 }

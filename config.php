@@ -6,7 +6,6 @@ if(!$Config->exists()) {
 	header('Location: add-config.php');
 }
 
-
 ?>
 
 <html>
@@ -30,7 +29,7 @@ if(!$Config->exists()) {
 
 		  <div class="form-group">
 		    <label>VHost File Path</label>
-		    <input type="text" class="form-control" value="<?php echo $_SERVER['DOCUMENT_ROOT'] ?>" name="data[vhost-path]" />
+		    <input type="text" class="form-control" value="" name="data[vhost-path]" />
 		  </div>
 
 			<button type="submit" name="data[submit]" class="btn btn-default"></button>
