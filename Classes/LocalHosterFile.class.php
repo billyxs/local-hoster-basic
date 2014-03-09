@@ -1,32 +1,36 @@
 <?php
-class LocalHosterFile {
+abstract class LocalHosterFile {
 
 	// System OS
-	protected $OS = '';
+	protected $OS = null;
 
-	public function __construct () {
+	protected $filePath = '';
+
+	protected $fileHandle = null;
+
+	public function __construct ( $values = array('filePath'=>'') ) {
 		$os = php_uname();
 		if( strstr($os, 'MacBook') )
 			$this->OS = "OSX";
 
 	}
 
-	private function getPathDefaults() {
-		$paths = array(
-				"hostsPath" => "",
-				"vhostsPath" => "",
-			);
-
-		switch ($this->OS) {
-			case "OSX":
-				$paths["hostsPath"] = '/etc/hosts';
-				$paths["vhostsPath"] = '/etc/apache2/extra/httpd-vhosts.conf';
-				break;
-			default:
-				break;
-		}
-
-		return $paths;
+	public function setFilePath($filePath) {
+		$this->filePath = $filePath;
 	}
+
+	public function exists() {
+		$bool = self::fileExists( $this->$filePath );
+		if(!$bool)
+			$this->filePath = '';
+
+		return $bool;
+	}
+
+	public static function fileExists($filePath) {
+		return file_exists( $filePath );
+	}
+
+	private function getSystemDefaultFilePath() {}
 
 }
