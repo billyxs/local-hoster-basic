@@ -48,7 +48,10 @@ if ($handle) {
 <body>
 
 	<div class="container">
-		<h2>Hosts</h2>
+		<h2>Local Hoster</h2>
+		<hr />
+		<a href="etc-hosts.php" class="btn btn-primary bt-lg">Hosts</a>
+		<a href="add-host.php" class="btn btn-primary bt-lg">Add Host</a>
 		<hr />
 		<?php
 

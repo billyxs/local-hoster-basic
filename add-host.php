@@ -46,6 +46,9 @@ if(isset($_REQUEST['data']) ) {
 	<div class="container">
 		<h2>Local Hoster</h2>
 		<hr />
+		<a href="etc-hosts.php" class="btn btn-primary bt-lg">Hosts</a>
+		<a href="add-host.php" class="btn btn-primary bt-lg">Add Host</a>
+		<hr />
 		<h3>Add Host</h3>
 		<blockquote class="active">
 			<p>Update your hosts and apache vhosts file by entering in the domain name and file path you would like to use to access your project.</p>
