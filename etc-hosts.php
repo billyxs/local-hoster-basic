@@ -49,12 +49,13 @@ if ($handle) {
 
 	<div class="container">
 		<h2>Hosts</h2>
+		<hr />
 		<?php
 
 		$trigger = false; // wait for localhost to show up in hosts file
 		// loop through the lines of text in file
 		foreach($lines as $key=>$val) {
-			// explode the text on the tab separation
+			// explode the text on the spacing separation
 			$line = preg_split("/[\s,]+/", $val);
 			$line = array_diff($line, array(""));
 
