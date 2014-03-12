@@ -9,4 +9,4 @@ Loop through each line in the /etc/hosts file to build links for all the project
 Starting a line with "#" will output a header
 Starting a line with 127.0.0.1 will output a link
 
-```You will still need to restart apache manually for the changes to take affect
+```You will still need to restart apache manually for the changes to take affect```
