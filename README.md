@@ -1,7 +1,7 @@
 local-hoster
 ============
 
-## Local Hoster helps you manage your system hosts and apache vhosts file, by allowing you to input the parameters into a web form.
+Local Hoster helps you manage your system hosts and apache vhosts file, by allowing you to input the parameters into a web form.
 
 Create links from your hosts file - /etc/hosts
 
