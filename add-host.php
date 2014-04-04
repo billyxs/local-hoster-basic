@@ -46,9 +46,8 @@ if(isset($_REQUEST['data']) ) {
 
 	<div class="container">
 		<h2>Local Hoster</h2>
-		<hr />
-		<a href="etc-hosts.php" class="btn btn-primary bt-lg">Hosts</a>
-		<a href="add-host.php" class="btn btn-primary bt-lg">Add Host</a>
+		<a href="etc-hosts.php" class="btn btn-primary bt-lg"><i class="fa fa-th-list fa-lg"></i> Hosts</a>
+		<a href="add-host.php" class="btn btn-success bt-lg"><i class="fa fa-plus fa-lg"></i> Add Host</a>
 		<hr />
 		<h3>Add Host</h3>
 		<blockquote class="active">
