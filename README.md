@@ -1,4 +1,4 @@
-local-hoster
+local-hoster-basic
 ============
 
 Local Hoster helps you manage your system hosts and apache vhosts file, by allowing you to input the parameters into a web form.  It also gives you a landing page to view and link out to all your projects
