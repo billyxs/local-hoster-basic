@@ -38,7 +38,8 @@ if ($handle) {
 ?>
 <html>
 <head>
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets/css/bootstrap-3.1.0.min.css" rel="stylesheet" />
+	<link href="/assets/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet" />
 	<style>
 	a {
 		font-size: 20px;
@@ -50,8 +51,8 @@ if ($handle) {
 	<div class="container">
 		<h2>Local Hoster</h2>
 		<hr />
-		<a href="etc-hosts.php" class="btn btn-primary bt-lg">Hosts</a>
-		<a href="add-host.php" class="btn btn-primary bt-lg">Add Host</a>
+		<a href="etc-hosts.php" class="btn btn-primary bt-lg"><i class="fa fa-th-list fa-lg"></i> Hosts</a>
+		<a href="add-host.php" class="btn btn-success bt-lg"><i class="fa fa-plus fa-lg"></i> Add Host</a>
 		<hr />
 		<?php
 

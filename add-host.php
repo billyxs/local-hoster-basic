@@ -34,7 +34,8 @@ if(isset($_REQUEST['data']) ) {
 
 <html>
 <head>
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets/css/bootstrap-3.1.0.min.css" rel="stylesheet" />
+	<link href="/assets/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet" />
 	<style>
 	a {
 		font-size: 20px;
