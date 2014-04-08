@@ -1,4 +1,4 @@
-<?php
+	<?php
 /**
  * This is a simple webpage that loops through the /etc/hosts file for navigation of projects
  * The file looks for a line that is starts with 127.0.0.1 before writing out links
@@ -62,7 +62,7 @@ if ($handle) {
 			$line = preg_split("/[\s,]+/", $val);
 			$line = array_diff($line, array(""));
 
-			if(is_array($line)) {
+			if(is_array($line) && ! empty($line)) {
 				if(strpos($line[0], '#') === false ) {
 				} else if($trigger) {
 					echo '<h3>' . implode($line, " ") . '</h3>';
